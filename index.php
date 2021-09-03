@@ -124,7 +124,7 @@ body {
         });
     }
     $(()=>{
-        let url = "https://api.thingspeak.com/channels/1490530/feeds.json?results=20";
+        let url = "https://api.thingspeak.com/channels/1490530/feeds.json?results=2";
         $.getJSON(url)
             .done(function(data){
                 let feed = data.feeds;
@@ -135,7 +135,7 @@ body {
                     dateStr += " "+d.getHours()+":"+d.getMinutes();
             $("#lastTempearatureBody").text(feed[1].field3+ " C");
                 $("#lastHeart").text(feed[1].field1+ " BPM");
-                $("#lastBlood").text(feed[1].field2 );
+                $("#lastBlood").text(feed[1].field2 +"%");
                 $("#lastUpdate").text(dateStr);
                 var plot_data = Object();
                 var xlabel = [];
