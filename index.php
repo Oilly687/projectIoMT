@@ -12,8 +12,13 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
+  <style>
+body {
+  background-color: rgb (169,169,169);
+}
+</style>
   <body>
-     background-color: rgb (169,169,169);
+    
     <div class="container p-3 my-3 bg-dark text-white">
         <center><h1>PULSEOXIMETER &TEMP</h1></center> 
     </div>
@@ -127,9 +132,9 @@
                     const monthNames = ["January","February","March","April","May","July","August","September","October","November","December"];
                     let dateStr = d.getDate()+" "+monthNames[d.getMonth()]+" "+d.getFullYear();
                     dateStr += " "+d.getHours()+":"+d.getMinutes();
-            $("#lastTempearatureBody").text(feed[49].field2+ " C");
-                $("#lastHeart").text(feed[49].field1+ " %");
-                $("#lastBlood").text(feed[49].field3 );
+            $("#lastTempearatureBody").text(feed[49].field3+ " C");
+                $("#lastHeart").text(feed[49].field1+ " BPM");
+                $("#lastBlood").text(feed[49].field2 );
                 $("#lastUpdate").text(dateStr);
                 var plot_data = Object();
                 var xlabel = [];
