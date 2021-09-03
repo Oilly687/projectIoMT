@@ -129,13 +129,13 @@ body {
             .done(function(data){
                 let feed = data.feeds;
                 let ch = data.channel;
-                const d = new Date(feed[19].created_at);
+                const d = new Date(feed[1].created_at);
                     const monthNames = ["January","February","March","April","May","July","August","September","October","November","December"];
                     let dateStr = d.getDate()+" "+monthNames[d.getMonth()]+" "+d.getFullYear();
                     dateStr += " "+d.getHours()+":"+d.getMinutes();
-            $("#lastTempearatureBody").text(feed[19].field3+ " C");
-                $("#lastHeart").text(feed[19].field1+ " BPM");
-                $("#lastBlood").text(feed[19].field2 );
+            $("#lastTempearatureBody").text(feed[1].field3+ " C");
+                $("#lastHeart").text(feed[1].field1+ " BPM");
+                $("#lastBlood").text(feed[1].field2 );
                 $("#lastUpdate").text(dateStr);
                 var plot_data = Object();
                 var xlabel = [];
