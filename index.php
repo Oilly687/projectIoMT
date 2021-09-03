@@ -14,7 +14,7 @@
     </head>
   <body>
     <div class="container p-3 my-3 bg-dark text-white">
-        <center><h1>62111687 APAPORN THIPSAVAK</h1></center> 
+        <center><h1>PULSEOXIMETER &TEMP</h1></center> 
     </div>
  <center> <div class="container">
       <center><div class="row">
