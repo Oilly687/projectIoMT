@@ -13,6 +13,7 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
   <body>
+     background-color: rgb (169,169,169);
     <div class="container p-3 my-3 bg-dark text-white">
         <center><h1>PULSEOXIMETER &TEMP</h1></center> 
     </div>
@@ -35,26 +36,26 @@
         <div class="col-6">
           <div class="row">
               <div class="col-6">
-                <b>Temperature</b>
+                <b>Temperature Body</b>
               </div>
                <div class="col-6">
-                  <b><span id="lastTempearature"></span></b>
+                  <b><span id="lastTempearatureBody"></span></b>
                </div> 
           </div>
           <div class="row">
             <div class="col-6">
-              <b>Humadity</b>
+              <b>Heart Rate</b>
             </div>
              <div class="col-6">
-                <b><span id="lastHumadity"></span></b>
+                <b><span id="lastHeart"></span></b>
              </div> 
         </div>
         <div class="row">
           <div class="col-6">
-            <b>Light</b>  
+            <b>Blood Oxygen</b>  
           </div>
            <div class="col-6">
-          <b><span id="lastlight"></span></b> 
+          <b><span id="lastBlood"></span></b> 
            </div> 
       </div>
       <div class="row">
@@ -117,18 +118,18 @@
         });
     }
     $(()=>{
-        let url = "https://api.thingspeak.com/channels/1458419/feeds.json?results=240";
+        let url = "https://api.thingspeak.com/channels/1490530/feeds.json?results=50";
         $.getJSON(url)
             .done(function(data){
                 let feed = data.feeds;
                 let ch = data.channel;
-                const d = new Date(feed[239].created_at);
+                const d = new Date(feed[49].created_at);
                     const monthNames = ["January","February","March","April","May","July","August","September","October","November","December"];
                     let dateStr = d.getDate()+" "+monthNames[d.getMonth()]+" "+d.getFullYear();
                     dateStr += " "+d.getHours()+":"+d.getMinutes();
-            $("#lastTempearature").text(feed[239].field2+ " C");
-                $("#lastHumadity").text(feed[239].field1+ " %");
-                $("#lastlight").text(feed[239].field3 );
+            $("#lastTempearatureBody").text(feed[49].field2+ " C");
+                $("#lastHeart").text(feed[49].field1+ " %");
+                $("#lastBlood").text(feed[49].field3 );
                 $("#lastUpdate").text(dateStr);
                 var plot_data = Object();
                 var xlabel = [];
@@ -136,7 +137,7 @@
                 var H = [];
                 var L =[];
                 $.each(feed,(k,v)=>{
-                    xlabel.push(v.field4 +":"+ v.field5);
+                    xlabel.push(v.created_at);
                     H.push(v.field1);
                     T.push(v.field2);
                     L.push(v.field3)
